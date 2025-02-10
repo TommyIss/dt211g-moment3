@@ -4,7 +4,9 @@ $header-footer-background: #2E5077;
 $main-background: #F6F4F0;
 $mainLine-color: #4DA1A9;
 $hover-color: #79D7BE;
-
+$line-family: Arial, Helvetica, sans-serif;
+$line-size: 1.4em;
+$line-height: 1.3em;
 @mixin flexBox($justify, $align, $direction) {
     display: flex;
     align-items: $align;
