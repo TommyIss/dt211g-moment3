@@ -1,0 +1,17 @@
+@import "variables";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1600px;
+    margin: auto;
+    background-color: $main-background;
+}
+
+header {
+    background-color: $header-footer-background;
+    
+}
