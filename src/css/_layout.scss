@@ -9,9 +9,59 @@ body {
     max-width: 1600px;
     margin: auto;
     background-color: $main-background;
+    font-family: $line-family;
+    font-size: $line-size;
+    line-height: $line-height;
 }
 
+// Sidhuvud
 header {
     background-color: $header-footer-background;
+    color: $main-background;
+    @include flexBox(space-around, center, row);
+    width: 100%;
+    padding: 2%;
+}
+
+// Navigerings-meny
+#navlist {
+    list-style-type: none;
+    @include flexBox(space-evenly, center, row);
     
+    li {
+        margin: 0 2%;
+    }
+    li a {
+        text-decoration: none;
+        color: $main-background;
+        padding: 0 2%;
+    }
+}
+
+p {
+    max-width: 60ch;
+}
+main {
+    margin: 2% 0;
+    @include flexBox(center, center, column);
+    width: 100%;
+    h2 {
+        margin: 2% 0;
+    }
+
+    section {
+        margin: 0 4%;
+        
+        p {
+            margin: 1% 0
+        }
+    }
+}
+
+footer {
+    @include flexBox(center, center, column);
+    width: 100%;
+    padding: 2%;
+    color: $main-background;
+    background-color: $header-footer-background;
 }
