@@ -1,0 +1,13 @@
+// Varibler-fil
+
+$header-footer-background: #2E5077;
+$main-background: #F6F4F0;
+$mainLine-color: #4DA1A9;
+$hover-color: #79D7BE;
+
+@mixin flexBox($justify, $align, $direction) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
