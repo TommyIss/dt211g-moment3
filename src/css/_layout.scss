@@ -22,6 +22,16 @@ header {
     width: 100%;
     padding: 2%;
 }
+h1 {
+    a{
+        text-decoration: none;
+        color: $main-background;
+        &:hover {
+            color: $hover-color;
+            text-decoration: underline;
+        }
+    }
+}
 
 // Navigerings-meny
 #navlist {
@@ -35,6 +45,14 @@ header {
         text-decoration: none;
         color: $main-background;
         padding: 0 2%;
+        &:hover {
+            color: $hover-color;
+            text-decoration: underline;
+        }
+    }
+    .actual-side {
+        color: $hover-color;
+        text-decoration: underline;
     }
 }
 
