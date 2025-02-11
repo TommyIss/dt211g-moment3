@@ -49,7 +49,7 @@ p {
     max-width: 60ch;
 }
 main {
-    margin: 2% 0;
+    margin: 5% 0;
     @include flexBox(center, center, column);
     width: 100%;
     h2 {
@@ -66,9 +66,10 @@ main {
 }
 
 footer {
-    @include flexBox(center, center, column);
+    // @include flexBox(center, center, column);
     width: 100%;
     padding: 2%;
+    @extend main ;
     color: $main-background;
     background-color: $header-footer-background;
 }
