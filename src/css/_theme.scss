@@ -1,0 +1,13 @@
+@import "variables";
+
+
+@mixin color-theme($theme) {
+
+    @if $theme == "dark" {
+        background-color: darken($mainLine-color, 40%);
+        color: lighten($mainLine-color, 30%);
+    } @else {
+        background-color: $main-background;
+        color: darken($mainLine-color, 20%);
+    }
+}

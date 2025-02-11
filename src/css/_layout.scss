@@ -1,4 +1,5 @@
 @import "variables";
+@import "theme";
 
 * {
     margin: 0;
@@ -8,7 +9,6 @@
 body {
     max-width: 1600px;
     margin: auto;
-    background-color: $main-background;
     font-family: $line-family;
     font-size: $line-size;
     line-height: $line-height;
@@ -72,6 +72,22 @@ footer {
     @extend main ;
     color: $main-background;
     background-color: $header-footer-background;
+    margin-bottom: 0;
+}
+
+// Stilsättning för ljust läge
+@media (prefers-color-scheme: light) {    
+    body {
+        @include color-theme(light);
+    }
+}
+
+
+// Stilsättning för mörkt läge
+@media (prefers-color-scheme: dark) {    
+    body {
+        @include color-theme(dark);
+    }
 }
 
 // Stilsättningar för mindre skärmer
