@@ -76,11 +76,17 @@ main {
 
     section {
         margin: 0 4%;
-        
+        h3, h4 {
+            margin-top: 2%;
+        }
         p {
-            margin: 1% 0
+            margin-top: 0;
+        }
+        ul {
+            padding: 0 4%;
         }
     }
+
 }
 
 footer {
@@ -162,7 +168,7 @@ footer {
         right: 0;
         background-color: $header-footer-background;
         width: 50vw;
-        height: 75%;
+        height: 400px;
         overflow: hidden;
     }
 
@@ -170,10 +176,10 @@ footer {
     nav {
         display: none;
     }
-    #open-btn:focus-within~ nav {
+    #open-btn:focus~ nav {
         display: block;
     }
-    #close-btn:focus-within~ nav {
+    #close-btn:focus~ nav {
         display: none;
     }
 
