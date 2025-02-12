@@ -176,11 +176,12 @@ footer {
     nav {
         display: none;
     }
-    #open-btn:focus~ nav {
-        display: block;
-    }
-    #close-btn:focus~ nav {
-        display: none;
-    }
+    // #open-btn:focus~ nav {
+    //     display: block;
+    // }
+    // #close-btn:focus~ nav {
+    //     display: none;
+    // }
+    
 
 }
