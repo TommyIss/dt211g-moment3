@@ -89,6 +89,19 @@ main {
 
 }
 
+// Bilder
+.pics-div {
+    margin-top: 3%;
+    @include flexBox(space-evenly, center, column)
+}
+.pics {
+    width: 60%;
+    margin: 1% 0;
+}
+.images {
+    width: 100%;
+}
+
 footer {
     // @include flexBox(center, center, column);
     width: 100%;
@@ -176,12 +189,11 @@ footer {
     nav {
         display: none;
     }
-    // #open-btn:focus~ nav {
-    //     display: block;
-    // }
-    // #close-btn:focus~ nav {
-    //     display: none;
-    // }
+
+    // Bilder
+    .pics {
+        width: 80%;
+    }
     
 
 }
