@@ -102,6 +102,19 @@ main {
     width: 100%;
 }
 
+// Bilder i Animeringssida
+.pics-container {
+    @include flexBox(space-evenly, center, row);
+    .pictures {
+        width: 40%;
+        height: 15%;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+    } 
+}
+
 footer {
     // @include flexBox(center, center, column);
     width: 100%;
