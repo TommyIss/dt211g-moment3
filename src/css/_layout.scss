@@ -1,5 +1,6 @@
 @import "variables";
 @import "theme";
+@import "keyframes";
 
 * {
     margin: 0;
@@ -102,17 +103,63 @@ main {
     width: 100%;
 }
 
+// Knapp i animgeringssida
+@property --color-1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: gold;
+}
+@property --color-2 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: darkblue;
+}
+#play-btn {
+    --color-1: gold;
+    --color-2: darkblue;
+    padding: 0.5% 2%;
+    font-size: $line-size;
+    background: linear-gradient(45deg,var(--color-1), var(--color-2));
+    cursor: pointer;
+    transition: --color-1 1s, --color-2 1s;
+    &:hover {
+        animation: shadowEffect 0.5s 0s forwards linear;
+        --color-1: darkblue;
+        --color-2: gold;
+    }
+}
 // Bilder i Animeringssida
 .pics-container {
     @include flexBox(space-evenly, center, row);
     .pictures {
         width: 40%;
         height: 15%;
+        margin: 5% 0;
+        #img1 {
+            animation: shadowEffect 5s 0s infinite alternate ease-in-out;
+        }
+        #img2 {
+            animation: shadowEffect 5s 5s infinite alternate ease-in-out;
+        }
     }
     .img {
         width: 100%;
         height: 100%;
-    } 
+        // animation: circlePath 5s linear infinite alternate;
+    }
+    #img3 {
+        animation: rotation 15s ease-in-out infinite alternate;
+    }
+    #img4 {
+        animation: rotation2 15s ease-in-out infinite alternate;
+    }
+    #img5 {
+        animation: circlePath2 15s 1s ease-in-out infinite alternate;
+    }
+    #img6 {
+        animation: circlePath1 15s 1s ease-in-out infinite alternate;
+    }
+
 }
 
 footer {
