@@ -11,7 +11,16 @@ let playBtnEl = document.getElementById("play-btn");
 // Event lyssnare
 openBtnEl.addEventListener("click", toggleMenu);
 closeBtnEl.addEventListener("click", toggleMenu);
-playBtnEl.addEventListener("click", playAnimation);
+
+document.addEventListener("DOMContentLoaded", function() {
+    //URL-sökvägen
+    let path = window.location.pathname;
+    
+    if(path === '/animering.html') {
+        playBtnEl.addEventListener("click", playAnimation);
+    }
+
+});
 
 // funktion
 function toggleMenu() {
