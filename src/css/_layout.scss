@@ -74,7 +74,12 @@ main {
     h2 {
         margin: 2% 0;
     }
-
+    p {
+        margin: 2%;
+    }
+    h3 {
+        margin-top: 2%;
+    }
     section {
         margin: 0 4%;
         h3, h4 {
@@ -117,6 +122,7 @@ main {
 #play-btn {
     --color-1: gold;
     --color-2: darkblue;
+    margin: 4%;
     padding: 0.5% 2%;
     font-size: $line-size;
     background: linear-gradient(45deg,var(--color-1), var(--color-2));
