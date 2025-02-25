@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //URL-sökvägen
     let path = window.location.pathname;
     
-    if(path === '/animering.html') {
+    if(path === '/animering.html' || path === '/animering') {
         playBtnEl.addEventListener("click", playAnimation);
     }
 
