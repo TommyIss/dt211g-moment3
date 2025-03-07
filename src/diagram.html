@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moment 3</title>
+    <title>Moment 5</title>
     <link rel="stylesheet" href="css/main.scss">
     <script type="module" src="js/main.js"></script>
 </head>
@@ -11,7 +11,7 @@
 
     <!-- Sidhuvud -->
     <header>
-        <h1><a href="index.html">Moment 3</a></h1>
+        <h1><a href="index.html">Moment 5</a></h1>
 
         
         <!-- Navigeringsmeny -->
@@ -34,10 +34,10 @@
                     </span>
                     <span class="menu-text">Stäng</span>
                 </button>
-                <li><a href="index.html" >Startsida</a></li>
-                <li><a href="#" class="actual-side">Sass</a></li>
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="sass.html">Sass</a></li>
                 <li><a href="animering.html">Animering</a></li>
-                <li><a href="diagram.html">Diagram</a></li>
+                <li><a href="diagram.html" class="actual-side">Diagram</a></li>
                 <li><a href="#">Om</a></li>
             </ul>
         </nav>
@@ -45,21 +45,14 @@
 
     <!-- Main -->
     <main>
-        <h2>SASS</h2>
+        <h2>Diagram</h2>
         <section>
-            <h3>Utvärdering</h3>
-            <h4>Fördelar</h4>
-            <p>
-                Arbetet med SASS påbörjades med att skapa huvud SASS-fil "main.scss", sedan skapade jag <storng>partials</storng> vilket gjorde min kod mer organiserad samt lättare att hanteras.
-                <br>Användningen av <strong>variabler</strong> för färger och typsnitt har hjälpt mig att hålla en konsekvent design och förenkla framtida ändringar.
-                <br>Användning av <strong>Mixin</strong> samt <strong>Extend</strong> har hjälpt mig med att skapa återanvändbara funktioner i flera ställen såsom flexbox som är lätt att ändras efter behovet, vilket har effektiviserat mitt arbete och sparat kod.
-                <br><strong>Nesting</strong> har hjälpt mig med att skapa mer struktured samt läsbar kod.
-            </p>
-            <h4>Nackdelar</h4>
-            <p>
-                En liten nackdel kan vara att det kräver en automatiserad arbetsmiljö för att kunna kompilera SASS till vanlig CSS.
-            </p>
+            <h3>Stapeldiagram</h3>
+            <div id="stapel-digram"></div>
+            <h3>Cirkeldiagram</h3>
+            <div id="circle-digram"></div>
         </section>
+
     </main>
 
     <!-- Sidfot -->
