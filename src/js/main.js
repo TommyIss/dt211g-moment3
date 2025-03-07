@@ -18,14 +18,16 @@ document.addEventListener("DOMContentLoaded", function() {
     
     if(path === '/animering.html' || path === '/animering') {
         playBtnEl.addEventListener("click", playAnimation);
+    } else if(path === '/diagram.html' || path === '/diagram') {
+        window.onload = init;
+
+        function init() {
+            getData();
+        }
     }
 
 });
-window.onload = init;
 
-function init() {
-    getData();
-}
 
 // funktioner
 function toggleMenu() {
@@ -116,7 +118,7 @@ function createStapelChart(datas) {
     courseArray.sort((a, b) => (b.applicantsTotal - a.applicantsTotal));
     
     programArray.sort((a, b) => (b.applicantsTotal - a.applicantsTotal));
-    console.log(programArray);
+
     let options = {
         chart: {
             type: 'bar',
