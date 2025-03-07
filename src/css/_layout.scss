@@ -149,6 +149,17 @@ main {
     }
 }
 
+// Stapeldiagram
+#stapel-diagram {
+    width: 80%;
+    height: 80%;
+    margin: 8% 0;
+}
+#circle-diagram {
+    width: 80%;
+    height: 80%;
+    margin: 8% 0;
+}
 footer {
     // @include flexBox(center, center, column);
     width: 100%;
