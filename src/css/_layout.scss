@@ -155,11 +155,47 @@ main {
     height: 80%;
     margin: 8% 0;
 }
+// Cirkeldiagram
 #circle-diagram {
     width: 80%;
     height: 80%;
     margin: 8% 0;
 }
+
+// Karta
+#container {
+    margin: 4% auto;
+    width: 80%;
+    border: 1px solid black;
+    height: 450px;
+    #input {
+        margin: 1% 1% 1% 5%;
+        font-size: $line-size;
+        line-height: $line-height;
+        padding: 0.5%;
+        max-width: 60%;
+    }
+    #searchBtn {
+        margin: 1%;
+        font-size: $line-size;
+        line-height: $line-height;
+        padding: 0.5% 1%;
+        background-color: $header-footer-background;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background-color: $hover-color;
+        }
+    }
+}
+#map {
+    margin-top: 4%;
+    margin-bottom: 0;
+    width: 100%;
+    border: 1px solid black;
+    height: 80%;
+}
+
 footer {
     // @include flexBox(center, center, column);
     width: 100%;
@@ -183,11 +219,18 @@ footer {
     body {
         @include color-theme(dark);
     }
+    #container {
+        background-color: lighten($header-footer-background, 20%);
+    }
 }
 
 // Stilsättningar för mindre skärmer
 @media screen and (max-width: 800px) {
     
+    $line-size: 1em;
+    body, #searchBtn, #input, #play-btn {
+        font-size: $line-size;
+    }
     // meny-knappar i mobilläge
     .menu-btn {
         display: block;
@@ -246,8 +289,19 @@ footer {
     // Öppna och stänga menyn
     nav {
         display: none;
+        z-index: 3;
     }
 
+    // Karta
+    #container {
+        height: 300px;
+    }
+    #map {
+        z-index: -1;
+        height: 80%;
+        
+    }
+    
     // Bilder
     .pics {
         width: 80%;

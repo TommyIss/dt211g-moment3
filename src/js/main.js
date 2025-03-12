@@ -7,6 +7,9 @@ let closeBtnEl = document.getElementById("close-btn");
 let playBtnEl = document.getElementById("play-btn");
 let stapelDiagram = document.getElementById('stapel-diagram');
 let circleDiagram = document.getElementById('circle-diagram');
+let inputEl = document.getElementById('input');
+let searchBtn = document.getElementById('searchBtn');
+let marker, circle, map;
 
 // Event lyssnare
 openBtnEl.addEventListener("click", toggleMenu);
@@ -24,6 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
         function init() {
             getData();
         }
+    } else if(path === '/map.html' || path === '/map') {
+        searchBtn.addEventListener('click', getMap);
+        inputEl.addEventListener('keyup', function(event) {
+            if(event.key === 'Enter') {
+                getMap();
+            }
+        });
     }
 
 });
@@ -186,19 +196,67 @@ function createStapelChart(datas) {
                 ]
             }
         ],
-        
         labels: [
             programArray[0].name, 
             programArray[1].name, 
             programArray[2].name, 
             programArray[3].name, 
             programArray[4].name
-        ]
-        ,
+        ],
         fill: {
             colors: ['blue', 'green', 'red', 'yellow', 'crimson']
         },
     }
     let chart2 = new ApexCharts(circleDiagram, options2);
     chart2.render();
+}
+
+/**
+ * @function getMap Hämtar data från api gällande adressdetaljer från inmatade uppgifter i textfält
+ */
+async function getMap() {
+    
+    let destination = inputEl.value;
+    let url = `https://nominatim.openstreetmap.org/search?addressdetails=1&q=${destination}&format=jsonv2&limit=1`;
+
+    try {
+        let response = await fetch(url);
+        if(!response.ok) {
+            throw new Error('Fel vid anslutning till data...');
+        }
+        let adress = await response.json();
+        printMap(adress[0]);
+    }
+    catch(error) {
+        console.error('Error: ', error);
+    }
+    
+}
+
+/**
+ * @function printMap Tar emot data och skapar en karta med markör för inmatade adress
+ * @param {object} data - Objekt som innehåller data gällande inmatade adress 
+ */
+function printMap(data) {
+    
+    let lat = data.lat;
+    let lng = data.lon;
+    if(map) {
+        map.remove();
+    }
+    map = L.map('map');
+    if(marker) {
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+    }
+    map.setView([lat, lng], 13);
+        
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        marker = L.marker([lat, lng]).addTo(map);
+        circle = L.circle([lat, lng]).addTo(map);
+        map.fitBounds(circle.getBounds());    
+    
 }
