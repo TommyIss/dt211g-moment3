@@ -99,6 +99,11 @@ async function getData() {
     }
 }
 
+
+function isDarkTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 import ApexCharts from "apexcharts";
 
 /**
@@ -129,25 +134,43 @@ function createStapelChart(datas) {
     
     programArray.sort((a, b) => (b.applicantsTotal - a.applicantsTotal));
 
+    let isDark = isDarkTheme();
+    let backgroundColor = isDark ? '#4DA1A9' : '#F6F4F0';
+    let fontColor = isDark ? '#F6F4F0' : '#4DA1A9';
+
     let options = {
         chart: {
             type: 'bar',
             height: '600px',
-            width: '100%'
-
+            width: '100%',
+            background: backgroundColor,
+            foreColor: fontColor
         },
         title: {
             text: 'Mesta sökta kurserna',
             align: 'center',
             style: {
                 fontSize: '18px',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                foreColor: fontColor
             }
         },
         series: [
             {
                 name: 'Kurser',
-                data: [courseArray[0].applicantsTotal, courseArray[1].applicantsTotal, courseArray[2].applicantsTotal, courseArray[3].applicantsTotal, courseArray[4].applicantsTotal, courseArray[5].applicantsTotal]
+                data: [
+                    courseArray[0].applicantsTotal, 
+                    courseArray[1].applicantsTotal, 
+                    courseArray[2].applicantsTotal, 
+                    courseArray[3].applicantsTotal, 
+                    courseArray[4].applicantsTotal, 
+                    courseArray[5].applicantsTotal
+                ],
+            style: {
+                fontSize: '18px',
+                fontWeight: 'bold',
+                foreColor: fontColor
+            }
             }
         ],
         xaxis: {
@@ -158,10 +181,15 @@ function createStapelChart(datas) {
                 courseArray[3].name, 
                 courseArray[4].name, 
                 courseArray[5].name
-            ]
+            ],
+            labels: {
+                style: {
+                    fontSize: '1em'
+                }
+            }
         },
         fill: {
-            colors: ['blue']
+            colors: ['grey']
         },
     }
     let chart1 = new ApexCharts(stapelDiagram, options);
@@ -169,27 +197,31 @@ function createStapelChart(datas) {
 
 
     // Cirkeldiagram för mesta sökta program
+    let validData = programArray.slice(0, 5).map(program => Number(program.applicantsTotal) || 0);
+    
     let options2 = {
         chart: {
             type: 'pie',
-            height: '600px',
-            width: '100%'
-
+            height: '700px',
+            width: '100%',
+            background: backgroundColor,
+            foreColor: fontColor
         },
         title: {
             text: 'Mesta sökta program',
             align: 'center',
             style: {
                 fontSize: '18px',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                foreColor: fontColor
             }
         },
         series: [
-                    programArray[0].applicantsTotal, 
-                    programArray[1].applicantsTotal, 
-                    programArray[2].applicantsTotal, 
-                    programArray[3].applicantsTotal, 
-                    programArray[4].applicantsTotal
+            validData[0], 
+            validData[1], 
+            validData[2], 
+            validData[3], 
+            validData[4]
         ],
         labels: [
             programArray[0].name, 
@@ -198,8 +230,16 @@ function createStapelChart(datas) {
             programArray[3].name, 
             programArray[4].name
         ],
+        style: {
+            fontSize: '0.9em'
+        },
+        dataLabels: {
+            style: {
+                fontSize: '0.9em'
+            }
+        },
         fill: {
-            colors: ['blue', 'green', 'red', 'yellow', 'crimson']
+            colors: ['blue', 'green', 'red', 'yellow', 'aqua']
         },
     }
     let chart2 = new ApexCharts(circleDiagram, options2);
