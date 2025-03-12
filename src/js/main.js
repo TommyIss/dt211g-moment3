@@ -185,16 +185,11 @@ function createStapelChart(datas) {
             }
         },
         series: [
-            {
-                
-                data: [
                     programArray[0].applicantsTotal, 
                     programArray[1].applicantsTotal, 
                     programArray[2].applicantsTotal, 
                     programArray[3].applicantsTotal, 
                     programArray[4].applicantsTotal
-                ]
-            }
         ],
         labels: [
             programArray[0].name, 
